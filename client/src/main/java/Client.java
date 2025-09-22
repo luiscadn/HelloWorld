@@ -1,25 +1,58 @@
 import Demo.Response;
+import Demo.PrinterPrx;
+import com.zeroc.Ice.Communicator;
+import com.zeroc.Ice.Util;
 
-public class Client
-{
-    public static void main(String[] args)
-    {
-        java.util.List<String> extraArgs = new java.util.ArrayList<>();
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
 
-        try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args,"config.client",extraArgs))
-        {
-            //com.zeroc.Ice.ObjectPrx base = communicator.stringToProxy("SimplePrinter:default -p 10000");
-            Response response = null;
-            Demo.PrinterPrx service = Demo.PrinterPrx
-                    .checkedCast(communicator.propertyToProxy("Printer.Proxy"));
-            
-            if(service == null)
-            {
+public class Client {
+    private static String resolveHostname() {
+        try {
+            return InetAddress.getLocalHost().getHostName();
+        } catch (Exception e) {
+            String env = System.getenv("HOSTNAME");
+            return (env != null && !env.isBlank()) ? env : "unknown-host";
+        }
+    }
+
+    public static void main(String[] args) {
+        int status = 0;
+        try (Communicator communicator = Util.initialize(args)) {
+
+            com.zeroc.Ice.ObjectPrx base = communicator.propertyToProxy("Printer.Proxy");
+            PrinterPrx printer = PrinterPrx.checkedCast(base);
+            if (printer == null) {
                 throw new Error("Invalid proxy");
             }
-            response = service.printString("Hello World from a remote client!");
 
-            System.out.println("Respuesta del server: " + response.value + ", " + response.responseTime);
+            final String username = System.getProperty("user.name", "unknown-user");
+            final String hostname = resolveHostname();
+            final String prefix = username + ":" + hostname + ":";
+
+            System.out.println("Cliente listo. Escribe mensajes; 'exit' para salir.");
+            System.out.println("Prefijo automático: " + prefix);
+
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+                while (true) {
+                    System.out.print("> ");
+                    String line = br.readLine();
+                    if (line == null) break;
+                    if ("exit".equalsIgnoreCase(line.trim())) {
+                        System.out.println("Saliendo…");
+                        break;
+                    }
+                    String payload = prefix + line;
+                    Response r = printer.printString(payload);
+                    double ms = (double) r.responseTime; 
+                    System.out.printf("Respuesta:\n%s\n(%.2f ms)\n", r.value, ms);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            status = 1;
         }
+        System.exit(status);
     }
 }

@@ -1,11 +1,10 @@
-module Demo
-{
-    class Response{
-        long responseTime;
-        string value;
-    }
-    interface Printer
-    {
-        Response printString(string s);
-    }
-}
+module Demo {
+  struct Response {
+    long responseTime; // ms
+    string value;
+  };
+
+  interface Printer {
+    Response printString(string s);
+  };
+};
