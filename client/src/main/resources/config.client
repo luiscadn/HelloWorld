@@ -1,3 +1,2 @@
-# Reemplaza ZT_IP_SERVER por la IP ZeroTier del servidor
-Printer.Proxy=SimplePrinter:tcp -h ZT_IP_SERVER -p 9099
+Printer.Proxy=SimplePrinter:tcp -h 127.0.0.1 -p 9099
 Ice.Default.Host=0.0.0.0
