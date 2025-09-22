@@ -1,7 +1,5 @@
-Printer.Endpoints=tcp -h 0.0.0.0 -p 9XYZ
+Printer.Endpoints=tcp -h 0.0.0.0 -p 9099
+SimplePrinter.Endpoints=${Printer.Endpoints}
 Ice.Default.Host=0.0.0.0
-
- SimplePrinter.Endpoints=${Printer.Endpoints}
-
 Ice.StdOut=stdout
 Ice.StdErr=stderr
