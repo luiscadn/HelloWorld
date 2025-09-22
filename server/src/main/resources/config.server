@@ -3,3 +3,4 @@ SimplePrinter.Endpoints=${Printer.Endpoints}
 Ice.Default.Host=0.0.0.0
 Ice.StdOut=stdout
 Ice.StdErr=stderr
+
