@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package Demo;
+package demo;
 
 public interface PrinterPrx extends com.zeroc.Ice.ObjectPrx
 {

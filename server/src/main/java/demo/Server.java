@@ -1,3 +1,4 @@
+package demo;
 import com.zeroc.Ice.*;
 
 public class Server {

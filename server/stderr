@@ -1,0 +1,21 @@
+com.zeroc.Ice.EndpointParseException
+    str = "invalid object adapter endpoint `${Printer.Endpoints}'"
+	at com.zeroc.Ice.ObjectAdapterI.parseEndpoints(ObjectAdapterI.java:1248)
+	at com.zeroc.Ice.ObjectAdapterI.<init>(ObjectAdapterI.java:1020)
+	at com.zeroc.IceInternal.ObjectAdapterFactory.createObjectAdapter(ObjectAdapterFactory.java:180)
+	at com.zeroc.Ice.CommunicatorI.createObjectAdapter(CommunicatorI.java:111)
+	at demo.Server.main(Server.java:8)
+com.zeroc.Ice.EndpointParseException
+    str = "invalid object adapter endpoint `${Printer.Endpoints}'"
+	at com.zeroc.Ice.ObjectAdapterI.parseEndpoints(ObjectAdapterI.java:1248)
+	at com.zeroc.Ice.ObjectAdapterI.<init>(ObjectAdapterI.java:1020)
+	at com.zeroc.IceInternal.ObjectAdapterFactory.createObjectAdapter(ObjectAdapterFactory.java:180)
+	at com.zeroc.Ice.CommunicatorI.createObjectAdapter(CommunicatorI.java:111)
+	at demo.Server.main(Server.java:8)
+com.zeroc.Ice.EndpointParseException
+    str = "invalid object adapter endpoint `${Printer.Endpoints}'"
+	at com.zeroc.Ice.ObjectAdapterI.parseEndpoints(ObjectAdapterI.java:1248)
+	at com.zeroc.Ice.ObjectAdapterI.<init>(ObjectAdapterI.java:1020)
+	at com.zeroc.IceInternal.ObjectAdapterFactory.createObjectAdapter(ObjectAdapterFactory.java:180)
+	at com.zeroc.Ice.CommunicatorI.createObjectAdapter(CommunicatorI.java:111)
+	at demo.Server.main(Server.java:8)

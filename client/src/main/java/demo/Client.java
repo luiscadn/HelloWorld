@@ -1,7 +1,9 @@
-import Demo.Response;
-import Demo.PrinterPrx;
+package demo;
 import com.zeroc.Ice.Communicator;
 import com.zeroc.Ice.Util;
+
+import demo.PrinterPrx;
+import demo.Response;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,7 +18,7 @@ public class Client {
     public static void main(String[] args) {
         int status = 0;
         try (Communicator communicator = Util.initialize(args)) {
-            // Carga Printer.Proxy desde --Ice.Config=client/src/main/resources/config.client
+
             com.zeroc.Ice.ObjectPrx base = communicator.propertyToProxy("Printer.Proxy");
             PrinterPrx service = PrinterPrx.checkedCast(base);
             if (service == null) throw new Error("Invalid proxy");

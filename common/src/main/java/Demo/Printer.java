@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package Demo;
+package demo;
 
 public interface Printer extends com.zeroc.Ice.Object
 {

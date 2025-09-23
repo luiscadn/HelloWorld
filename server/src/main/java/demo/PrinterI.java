@@ -1,5 +1,7 @@
-import Demo.Response;
+package demo;
 import com.zeroc.Ice.Current;
+
+import demo.Response;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PrinterI implements Demo.Printer {
+public class PrinterI implements demo.Printer {
 
     private static final Pattern INT_POS = Pattern.compile("^\\d+$");
     private static final Pattern LISTPORTS = Pattern.compile("^listports\\s+(\\d{1,3}(?:\\.\\d{1,3}){3})\\s*$");

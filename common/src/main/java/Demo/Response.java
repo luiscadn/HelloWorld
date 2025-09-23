@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package Demo;
+package demo;
 
 public class Response implements java.lang.Cloneable,
                                  java.io.Serializable
