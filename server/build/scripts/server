@@ -230,4 +230,4 @@ eval "set -- $(
         tr '\n' ' '
     )" '"$@"'
 
-exec "$JAVACMD" "$@"
+exec env ICE_CONFIG="$APP_HOME/config/config.server" "$JAVACMD" "$@"

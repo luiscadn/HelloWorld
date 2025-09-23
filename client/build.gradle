@@ -1,10 +1,9 @@
-
 plugins {
   id 'application'
 }
 
 application {
-  mainClassName = 'demo.Client'
+  mainClassName = 'demo.Client' 
   applicationDefaultJvmArgs = ['-DIce.Config=$APP_HOME/config/config.client']
 }
 
@@ -18,5 +17,18 @@ distributions {
     contents {
       from('src/main/resources') { into 'config' }
     }
+  }
+}
+
+tasks.named('startScripts') {
+  doLast {
+    unixScript.text = unixScript.text.replace(
+      'exec "$JAVACMD"',
+      'exec env ICE_CONFIG="$APP_HOME/config/config.server" "$JAVACMD"'
+    )
+    windowsScript.text = windowsScript.text.replace(
+      'exec %JAVA_EXE%',
+      'set ICE_CONFIG=%APP_HOME%\\config\\config.server\r\nexec %JAVA_EXE%'
+    )
   }
 }
