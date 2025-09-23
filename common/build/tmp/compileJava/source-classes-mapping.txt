@@ -1,9 +1,0 @@
-demo/Response.java
- demo.Response
-demo/PrinterPrx.java
- demo.PrinterPrx
-demo/_PrinterPrxI.java
- demo._PrinterPrxI
-demo/Printer.java
- demo.Printer
- demo.Printer$1
